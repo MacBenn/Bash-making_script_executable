@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Set the base directory to search for Python scripts
+base_dir="/home/server"
+
+# Loop through each directory in the base directory
+for dir in $base_dir/*/; do
+
+    # Loop through each Python script in the directory
+    for script in "$dir"*.py; do
+
+        # Check if the script exists and is a file
+        if [ -f "$script" ]; then
+
+            # Make the script executable
+            chmod +x "$script"
+
+            # Print a message to the console
+            echo "Made $script executable"
+
+        fi
+
+    done
